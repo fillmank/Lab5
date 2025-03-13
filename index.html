@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Population Density Maps</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    .map-container {
+      display: flex;
+      width: 100%;
+    }
+    .map-wrapper {
+      width: 50%;
+      padding: 10px;
+      box-sizing: border-box; /* Ensure padding is included in width */
+    }
+    .map-wrapper h3 {
+      text-align: center;
+      margin: 0 0 10px 0; /* Add some spacing below the title */
+    }
+    #map1, #map2 {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="map-container">
+    <div class="map-wrapper">
+      <h3>Proportional Symbols Map</h3>
+      <div id="map1"></div>
+    </div>
+    <div class="map-wrapper">
+      <h3>Choropleth Map</h3>
+      <div id="map2"></div>
+    </div>
+  </div>
+  <script src="/js/scripts.js"></script>
+</body>
+</html>
