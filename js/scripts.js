@@ -27,7 +27,7 @@ function createLegend(map, title, colors, labels) {
 }
 
 // Load proportional symbols data (cities)
-fetch('/data/USA_Major_Cities.geojson') // point data
+fetch('data/USA_Major_Cities.geojson') // point data
   .then(response => response.json())
   .then(cityData => {
     L.geoJSON(cityData, {
@@ -74,7 +74,7 @@ function getColor(population) {
 }
 
 // Load states data 
-fetch('/data/states.geojson') //  states polygon data file
+fetch('data/states.geojson') //  states polygon data file
   .then(response => response.json())
   .then(stateData => {
     L.geoJSON(stateData, {
