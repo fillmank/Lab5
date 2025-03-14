@@ -11,6 +11,21 @@ function getRadius(population) {
   return Math.sqrt(population) * 0.02; // Adjust scaling factor as needed
 }
 
+// Function to create a legend
+function createLegend(map, title, colors, labels) {
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = function () {
+    const div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML = `<strong>${title}</strong><br>`;
+    colors.forEach((color, i) => {
+      div.innerHTML +=
+        `<i style="background:${color}"></i> ${labels[i]}<br>`;
+    });
+    return div;
+  };
+  legend.addTo(map);
+}
+
 // Load proportional symbols data (cities)
 fetch('/data/USA_Major_Cities.geojson') // point data
   .then(response => response.json())
@@ -33,6 +48,9 @@ fetch('/data/USA_Major_Cities.geojson') // point data
         layer.bindPopup(`<b>${name}</b><br>Population: ${population.toLocaleString()}`);
       }
     }).addTo(map1);
+
+    // Add legend for proportional symbols map (if needed)
+    createLegend(map1, 'Population', ['#ff7800'], ['City Population']);
   });
 
 // Initialize the choropleth map
@@ -75,4 +93,7 @@ fetch('/data/states.geojson') //  states polygon data file
         layer.bindPopup(`<b>${name}</b><br>Population: ${population.toLocaleString()}`);
       }
     }).addTo(map2);
+
+    // Add legend for choropleth map
+    createLegend(map2, 'Population', ['#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'], ['0-100k', '100k-200k', '200k-500k', '500k-1M', '1M-2M', '2M-5M', '5M-10M', '10M+']);
   });

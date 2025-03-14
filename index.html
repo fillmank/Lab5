@@ -4,39 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Population Density Maps</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <style>
-    .map-container {
-      display: flex;
-      width: 100%;
-    }
-    .map-wrapper {
-      width: 50%;
-      padding: 10px;
-      box-sizing: border-box; /* Ensure padding is included in width */
-    }
-    .map-wrapper h3 {
-      text-align: center;
-      margin: 0 0 10px 0; /* Add some spacing below the title */
-    }
-    #map1, #map2 {
-      height: 500px;
-      width: 100%;
-    }
-  </style>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- Turf.js -->
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 </head>
 <body>
   <div class="map-container">
     <div class="map-wrapper">
-      <h3>Proportional Symbols Map</h3>
+      <h3>Choropleth Map: Point Counts</h3>
       <div id="map1"></div>
     </div>
     <div class="map-wrapper">
-      <h3>Choropleth Map</h3>
+      <h3>Choropleth Map: Normalized Rates</h3>
       <div id="map2"></div>
     </div>
   </div>
+  <!-- Link to your JavaScript file -->
   <script src="/js/scripts.js"></script>
 </body>
 </html>
